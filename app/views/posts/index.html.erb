@@ -6,14 +6,8 @@
 <% @posts.each do |post| %>
 
   <h1><%= link_to post.title, post %><h1>
-
+  <p align="right">Posted <%= time_ago_in_words(post.created_at) %> ago</p><hr>
 <% end %>
 
 
 <br>
-<% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
-<% else %>
-<h1> Boooo </h1>
-<% link_to 'Admin Login', new_user_session_path %>
-<% end %>
